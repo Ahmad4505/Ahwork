@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('question_id');
             $table->text('content');
-            $table->$table->boolean('correct')->default(false);
+            $table->boolean('correct')->default(false);
             $table->timestamps();
         });
     }
