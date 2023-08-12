@@ -9,5 +9,15 @@ class Jop extends Model
 {
     use HasFactory;
 
-    protected $guarded=[]; 
+    protected $guarded=[];
+
+    function user(){
+        return $this->belongsTo(User::class)->withDefault();
+    }
+    function projects(){
+        return $this->belongsTo(project::class)->withDefault();
+    }
+    function reviews(){
+        return $this->hasOne(Review::class);
+    }
 }

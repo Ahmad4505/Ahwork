@@ -9,5 +9,11 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $guarded=[]; 
+    protected $guarded=[];
+    function user(){
+        return $this->belongsTo(User::class)->withDefault();
+    }
+    function job(){
+        return $this->belongsTo(Jop::class)->withDefault();
+    }
 }

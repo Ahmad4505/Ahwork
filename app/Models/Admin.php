@@ -11,4 +11,7 @@ class Admin extends Authenticatable implements MustVerifyEmail
     use HasFactory;
 
     protected $guarded=[];
+    function role(){
+        return $this->belongsTo(Role::class)->withDefault();
+    }
 }

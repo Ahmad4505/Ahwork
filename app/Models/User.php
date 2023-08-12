@@ -42,4 +42,26 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    function projects(){
+
+        return $this->hasMany(Project::class);
+    }
+    function proposals(){
+        return $this->hasMany(Proposal::class);
+    }
+    function jobs(){
+        return $this->hasMany(Jop::class);
+    }
+    function reviews(){
+        return $this->hasMany(Review::class);
+    }
+
+    function send_messages(){
+        return $this->belongsTo(Message::class,'sender_id');
+    }
+    function received_messages(){
+        return $this->belongsTo(Message::class,'receiver_id');
+    }
+
+
 }
